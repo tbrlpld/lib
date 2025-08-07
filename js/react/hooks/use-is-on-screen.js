@@ -27,7 +27,8 @@ function useIsOnscreen() {
       return () => {
         observer.disconnect();
       }
-    }
+    },
+    []
   )
 
   return [isOnScreen, elementRef];
