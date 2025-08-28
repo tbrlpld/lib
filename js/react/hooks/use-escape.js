@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function useEscape{(callback) {
+function useEscape({callback}) {
   React.useEffect(
     () => {
       function handleEscape (event) {
