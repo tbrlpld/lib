@@ -1,15 +1,15 @@
 import * as React from 'react'
 
-type Direction = 'top' | 'bottom' | 'left' | 'right'
+export type Edge = 'top' | 'bottom' | 'left' | 'right'
 
 /**
  * Determine the closest edge of the target element where the mouse event happened.
  *
  * @param {React.MouseEvent} mouseEvent
- * @returns {Direction}
+ * @returns {Edge}
  */
-export function getClosestEdge (mouseEvent: React.MouseEvent): Direction {
-  const target = mouseEvent.nativeEvent.target
+export function getClosestEdge (mouseEvent: React.MouseEvent): Edge {
+  const target = (mouseEvent.target as HTMLElement)
   if (!target) {
     throw Error('No target for mouse event.')
   }
