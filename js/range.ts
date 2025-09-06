@@ -1,7 +1,7 @@
 // From Josh Comeau
 // https://courses.joshwcomeau.com/joy-of-react/01-fundamentals/08-range-util
-const range = (start, end, step = 1) => {
-  let output = [];
+export function range (start: number, end?: number , step: number = 1): number[] {
+  const output: number[] = [];
 
   if (typeof end === 'undefined') {
     end = start;
@@ -13,4 +13,4 @@ const range = (start, end, step = 1) => {
   }
 
   return output;
-};
+}
