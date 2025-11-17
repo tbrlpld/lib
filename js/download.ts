@@ -5,11 +5,11 @@ interface Props {
 }
 
 
-export default ({
+export function download ({
   content,
   filename = 'file.txt',
   mimeType = 'text/plain',
-}: Props): void => {
+}: Props): void {
   const downloadLink = document.createElement('a')
   downloadLink.href = `data:${ mimeType },${ encodeURIComponent(content) }`
   downloadLink.download = filename
