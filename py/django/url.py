@@ -27,10 +27,12 @@ def update_query_string(url: str, params: dict[str, str | list[str] | None]) -> 
             # in one.
             query_dict[key] = value if isinstance(value, list) else [value]
     query_string = django.utils.http.urlencode(query_dict, doseq=True)
-    return urllib.parse.urlunsplit((
-        parsed_url.scheme,
-        parsed_url.netloc,
-        parsed_url.path,
-        query_string,
-        parsed_url.fragment
-    ))
+    return urllib.parse.urlunsplit(
+        (
+            parsed_url.scheme,
+            parsed_url.netloc,
+            parsed_url.path,
+            query_string,
+            parsed_url.fragment,
+        )
+    )
