@@ -3,9 +3,11 @@ import urllib.parse
 import django.utils.http
 
 
-def update_query_string(url: str, params: dict[str, [str | list[str]]]) -> str:
+def update_query_string(url: str, params: dict[str, str | list[str]]) -> str:
     """
-    Append a query string based on the given dict of key-value pairs to the url.
+    Update the query string of the url based on the given dict of key-value pairs.
+
+    Values can be either string or list of strings.
     """
     parsed_url = urllib.parse.urlparse(url=url)
     query_dict = urllib.parse.parse_qs(qs=parsed_url.query, keep_blank_values=True)
