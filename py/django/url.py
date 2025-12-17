@@ -11,7 +11,7 @@ def update_query_string(url: str, params: dict[str, str | list[str] | None]) -> 
 
     To remove a key, use `None` as value.
     """
-    parsed_url = urllib.parse.urlparse(url=url)
+    parsed_url = urllib.parse.urlsplit(url=url)
     query_dict = urllib.parse.parse_qs(qs=parsed_url.query, keep_blank_values=True)
     for key, value in params.items():
         if value is None:
@@ -27,4 +27,10 @@ def update_query_string(url: str, params: dict[str, str | list[str] | None]) -> 
             # in one.
             query_dict[key] = value if isinstance(value, list) else [value]
     query_string = django.utils.http.urlencode(query_dict, doseq=True)
-    return urllib.parse.urljoin(base=url, url="?" + query_string)
+    return urllib.parse.urlunsplit((
+        parsed_url.scheme,
+        parsed_url.netloc,
+        parsed_url.path,
+        query_string,
+        parsed_url.fragment
+    ))
