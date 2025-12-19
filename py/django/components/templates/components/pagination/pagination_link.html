@@ -1,0 +1,20 @@
+{% extends './pagination_item.html' %}
+
+{% block opening_tag_name %}a{% endblock %}
+{% block attrs %}
+  {% if href %}
+    href="{{ href }}"
+  {% endif %}
+  {% if is_current %}
+    aria-current="page"
+  {% endif %}
+{% endblock %}
+{% block extra_class %}
+  [&:not([href])]:text-gray-300
+  [[href]&]:hover:border-gray-300
+  [[href]&]:hover:text-gray-700
+  aria-[current=page]:border-primary-500
+  aria-[current=page]:text-primary-600
+{% endblock %}
+{% block content %}{{ text }}{% endblock %}
+{% block closing_tag_name %}a{% endblock %}

@@ -1,0 +1,15 @@
+{% load laces %}
+
+<nav class="@container flex items-center justify-between border-t border-gray-200 text-sm font-medium text-gray-500 px-4 @sm:px-0">
+  <div class="-mt-px flex w-0 flex-1">
+    {% component previous %}
+  </div>
+  <div class="hidden @xl:-mt-px @xl:flex">
+    {% for item in items %}
+      {% component item %}
+    {% endfor %}
+  </div>
+  <div class="-mt-px flex w-0 flex-1 justify-end">
+    {% component next %}
+  </div>
+</nav>

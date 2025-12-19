@@ -1,0 +1,9 @@
+{% extends './pagination_link.html' %}
+
+{% block extra_class %}{{ block.super }} pl-0 pr-1 {% endblock %}
+{% block content %}
+  <svg viewBox="0 0 20 20" fill="currentColor" data-slot="icon" aria-hidden="true" class="mr-3 size-5 [[href]_&]:text-gray-400">
+    <path d="M18 10a.75.75 0 0 1-.75.75H4.66l2.1 1.95a.75.75 0 1 1-1.02 1.1l-3.5-3.25a.75.75 0 0 1 0-1.1l3.5-3.25a.75.75 0 1 1 1.02 1.1l-2.1 1.95h12.59A.75.75 0 0 1 18 10Z" clip-rule="evenodd" fill-rule="evenodd" />
+  </svg>
+  Previous
+{% endblock %}

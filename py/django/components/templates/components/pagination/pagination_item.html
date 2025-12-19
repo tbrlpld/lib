@@ -1,0 +1,9 @@
+<{% block opening_tag_name %}span{% endblock %}
+  {% block class %}
+    class="inline-flex items-center border-t-2 border-transparent px-4 pt-4 {% block extra_class %}{% endblock extra_class %}"
+  {% endblock class %}
+  {% block attrs %}
+  {% endblock attrs %}
+>
+  {% block content %}...{% endblock %}
+</{% block closing_tag_name %}span{% endblock %}>
